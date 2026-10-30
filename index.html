@@ -1,0 +1,39 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>交易所活期理财收益对比</title>
+<style>body{background:#0b0f17;color:#e6e9ef;font-family:system-ui,"PingFang SC",sans-serif;margin:0;padding:20px;max-width:1200px;margin:auto}
+h1{font-size:22px}.muted{color:#8a93a6;font-size:13px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2ecc71;margin-right:6px}
+.bar{display:flex;gap:10px;align-items:center;margin:14px 0;flex-wrap:wrap}.tab{background:#1a2030;border:1px solid #2a3245;color:#cfd5e2;padding:8px 16px;border-radius:8px;cursor:pointer}.tab.on{background:#f39c12;color:#111;font-weight:700}
+.box{background:#121826;border:1px solid #232b3d;border-radius:12px;padding:14px;margin:14px 0}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.best{background:#0e1320;border-radius:8px;padding:10px;font-size:13px}.g{color:#2ecc71;font-weight:700;font-size:18px}.o{color:#f39c12}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}.row{border-top:1px solid #222a3b;padding:8px 0;font-size:13px}
+.tag{border:1px solid #3a6;color:#8fd;padding:1px 6px;border-radius:4px;font-size:11px}.track{height:6px;background:#222a3b;border-radius:3px;flex:1;margin:0 10px}.fill{height:6px;border-radius:3px;background:linear-gradient(90deg,#f39c12,#2ecc71)}
+input[type=number]{width:110px;background:#0b0f17;color:#fff;border:1px solid #2a3245;border-radius:6px;padding:4px}details{color:#8a93a6;font-size:12px}.bad{color:#e67e22;font-size:12px}</style></head><body>
+<h1>🍊 交易所活期理财收益对比</h1><div class="muted"><span class="dot"></span>实时 · 每 60 秒刷新　最后更新：<span id="up">-</span>（北京时间 UTC+8）</div>
+<div class="bar"><span class="tab on" data-t="stable">稳定币</span><span class="tab" data-t="major">主流币</span><span class="tab" data-t="all">全部</span>
+<label class="muted"><input type="checkbox" id="nu"> 计入新用户/限额专享（仅 Bitget 可识别，推断）</label></div>
+<div id="st" class="bad"></div><div class="box"><b>🏆 每个币种最佳去处（按输入金额，混合年化）</b><div class="grid" id="best"></div></div><div class="cards" id="cards"></div>
+<p class="muted">数据均来自各交易所公开接口，未使用任何 API Key。利率为年化，浮动利率随市场变化；仅作信息参考，不构成投资建议，存款前请自行核实交易所安全与储备证明。</p>
+<script>
+let D=null,tab='stable',amt={};const DEF={BTC:0.1,ETH:1,SOL:10};
+function blend(p,a){if(a<=0)return 0;let earn=0;
+ if(p.tiers){let rest=a;for(const[mn,mx,r]of p.tiers){const q=Math.max(0,Math.min(a,mx)-mn);earn+=q*r/100;rest-=q}if(rest>0&&p.tiers.length)earn+=rest*p.tiers[p.tiers.length-1][2]/100}
+ else{earn=a*p.base/100;for(const[mn,mx,r]of p.bonus){earn+=Math.max(0,Math.min(a,mx)-mn)*r/100}}return earn/a*100}
+function coins(){return tab=='stable'?D.stable:tab=='major'?D.major:D.stable.concat(D.major)}
+function f(x){return x>=100?x.toFixed(2):x>=1?x.toFixed(4):x.toPrecision(4)}
+function render(){if(!D)return;document.getElementById('up').textContent=D.updated;const nu=document.getElementById('nu').checked;
+ document.getElementById('st').innerHTML=Object.entries(D.status).filter(([k,v])=>!v.ok).map(([k,v])=>`⚠ ${k} 不可用：${v.err}`).join('<br>');
+ let B='',C='';for(const c of coins()){const a=amt[c]??(DEF[c]||(c=='USDT'||c=='USDC'?10000:1000));
+  let ps=D.products.filter(p=>p.coin==c&&(nu||!p.newuser)).map(p=>({...p,r:blend(p,a)}));
+  // keep best product per exchange
+  const by={};for(const p of ps)if(!by[p.ex]||p.r>by[p.ex].r)by[p.ex]=p;ps=Object.values(by).sort((x,y)=>y.r-x.r);if(!ps.length)continue;
+  const mx=ps[0].r||1,missing=['Binance','OKX','Bybit','Bitget','Gate'].filter(e=>!by[e]);
+  B+=`<div class="best"><b>${c}</b> <span class="muted">${a} ${c}</span><br><span class="o">${ps[0].ex}</span> <span class="g">${ps[0].r.toFixed(3)}%</span><br><span class="muted">日 ≈ ${f(a*ps[0].r/36500)} · 年 ≈ ${f(a*ps[0].r/100)} ${c}${ps[1]?` · 次选 ${ps[1].ex} ${ps[1].r.toFixed(3)}%`:''}</span></div>`;
+  C+=`<div class="box"><div style="display:flex;justify-content:space-between"><b>${c}</b><span class="muted">金额 <input type="number" value="${a}" onchange="amt['${c}']=+this.value;render()"> ${c}</span></div>`+
+  ps.map((p,i)=>`<div class="row"><div style="display:flex;align-items:center"><b>${i+1}. ${p.ex}</b><div class="track"><div class="fill" style="width:${p.r/mx*100}%"></div></div><span class="g" style="font-size:15px">${p.r.toFixed(3)}%</span></div>
+  <span class="tag">${p.type}</span> <span class="muted">日收益 ≈ ${f(a*p.r/36500)} · 年收益 ≈ ${f(a*p.r/100)} ${c} · 采用：${p.name}</span>
+  <details><summary>详情 · 分档 · 来源</summary>${p.tiers?p.tiers.map(t=>`${t[0]}–${t[1]}：${t[2]}%`).join('<br>'):`基础 ${p.base.toFixed(3)}%`+p.bonus.map(t=>`<br>+ ${t[0]}–${t[1]} 档额外 ${t[2].toFixed(2)}%`).join('')}<br>来源：${p.source}</details></div>`).join('')+
+  (missing.length?`<div class="muted">无活期产品/不可用：${missing.join('、')}</div>`:'')+`</div>`}
+ document.getElementById('best').innerHTML=B;document.getElementById('cards').innerHTML=C}
+async function load(){try{D=await (await fetch('api/data')).json();render()}catch(e){}}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');tab=t.dataset.t;render()});
+document.getElementById('nu').onchange=render;load();setInterval(load,60000);
+</script></body></html>

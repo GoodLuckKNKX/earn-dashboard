@@ -1,0 +1,46 @@
+name: Fetch rates
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-rates
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Test failure isolation and parsers
+        run: python3 -m unittest discover -s tests -v
+      - name: Fetch exchange rates
+        env:
+          BYBIT_API_KEY: ${{ secrets.BYBIT_API_KEY }}
+          BYBIT_API_SECRET: ${{ secrets.BYBIT_API_SECRET }}
+        run: python3 scripts/fetch_rates.py
+      - name: Commit changed snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/rates.json
+          if git diff --cached --quiet; then
+            echo "No data changes"
+            exit 0
+          fi
+          git commit -m "Update exchange rates"
+          git pull --rebase origin main
+          git push origin HEAD:main

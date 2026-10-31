@@ -4,3 +4,5 @@ __pycache__/
 cloudflared
 bore
 .venv/
+_site/
+data/*.tmp

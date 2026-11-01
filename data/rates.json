@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-01T05:38:13Z",
-  "checked_at": "2026-11-01T05:38:13Z",
+  "updated_at": "2026-11-01T13:03:59Z",
+  "checked_at": "2026-11-01T13:03:59Z",
   "stable": [
     "USDT",
     "USDC",
@@ -24,7 +24,7 @@
       "coin": "USDT",
       "name": "USDT001",
       "type": "基础浮动+分档奖励",
-      "base": 2.97816,
+      "base": 3.1745929999999998,
       "bonus": [
         [
           0.0,
@@ -41,7 +41,7 @@
       "coin": "USDC",
       "name": "USDC001",
       "type": "基础浮动+分档奖励",
-      "base": 2.8740870000000003,
+      "base": 2.9652890000000003,
       "bonus": [
         [
           0.0,
@@ -58,7 +58,7 @@
       "coin": "FDUSD",
       "name": "FDUSD001",
       "type": "浮动",
-      "base": 0.278495,
+      "base": 0.279837,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -69,7 +69,7 @@
       "coin": "USD1",
       "name": "USD1001",
       "type": "浮动",
-      "base": 3.111529,
+      "base": 3.1572940000000003,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -80,7 +80,7 @@
       "coin": "TUSD",
       "name": "TUSD001",
       "type": "浮动",
-      "base": 1.584809,
+      "base": 1.585621,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -102,7 +102,7 @@
       "coin": "BTC",
       "name": "BTC001",
       "type": "基础浮动+分档奖励",
-      "base": 0.016874,
+      "base": 0.017713,
       "bonus": [
         [
           0.0,
@@ -119,7 +119,7 @@
       "coin": "ETH",
       "name": "ETH001",
       "type": "基础浮动+分档奖励",
-      "base": 1.14381,
+      "base": 1.175778,
       "bonus": [
         [
           0.0,
@@ -136,7 +136,7 @@
       "coin": "SOL",
       "name": "SOL001",
       "type": "浮动",
-      "base": 2.213064,
+      "base": 2.233709,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -169,7 +169,7 @@
       "coin": "USDT",
       "name": "Simple Earn 活期借贷",
       "type": "浮动（借贷市场）",
-      "base": 4.3,
+      "base": 4.0,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -199,10 +199,10 @@
     },
     {
       "ex": "Gate",
-      "coin": "USD1",
+      "coin": "BTC",
       "name": "余币宝 Uni Lending",
       "type": "浮动（借贷市场）",
-      "base": 5.93,
+      "base": 0.1,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -210,10 +210,21 @@
     },
     {
       "ex": "Gate",
-      "coin": "FDUSD",
+      "coin": "USD1",
       "name": "余币宝 Uni Lending",
       "type": "浮动（借贷市场）",
-      "base": 0.1,
+      "base": 3.55,
+      "bonus": [],
+      "tiers": null,
+      "newuser": false,
+      "source": "Gate /api/v4/earn/uni/rate est_rate"
+    },
+    {
+      "ex": "Gate",
+      "coin": "USDT",
+      "name": "余币宝 Uni Lending",
+      "type": "浮动（借贷市场）",
+      "base": 2.5100000000000002,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -232,40 +243,7 @@
     },
     {
       "ex": "Gate",
-      "coin": "USDE",
-      "name": "余币宝 Uni Lending",
-      "type": "浮动（借贷市场）",
-      "base": 5.0,
-      "bonus": [],
-      "tiers": null,
-      "newuser": false,
-      "source": "Gate /api/v4/earn/uni/rate est_rate"
-    },
-    {
-      "ex": "Gate",
-      "coin": "USDC",
-      "name": "余币宝 Uni Lending",
-      "type": "浮动（借贷市场）",
-      "base": 2.98,
-      "bonus": [],
-      "tiers": null,
-      "newuser": false,
-      "source": "Gate /api/v4/earn/uni/rate est_rate"
-    },
-    {
-      "ex": "Gate",
-      "coin": "USDT",
-      "name": "余币宝 Uni Lending",
-      "type": "浮动（借贷市场）",
-      "base": 2.5,
-      "bonus": [],
-      "tiers": null,
-      "newuser": false,
-      "source": "Gate /api/v4/earn/uni/rate est_rate"
-    },
-    {
-      "ex": "Gate",
-      "coin": "BTC",
+      "coin": "FDUSD",
       "name": "余币宝 Uni Lending",
       "type": "浮动（借贷市场）",
       "base": 0.1,
@@ -276,10 +254,32 @@
     },
     {
       "ex": "Gate",
+      "coin": "USDC",
+      "name": "余币宝 Uni Lending",
+      "type": "浮动（借贷市场）",
+      "base": 2.9000000000000004,
+      "bonus": [],
+      "tiers": null,
+      "newuser": false,
+      "source": "Gate /api/v4/earn/uni/rate est_rate"
+    },
+    {
+      "ex": "Gate",
       "coin": "SOL",
       "name": "余币宝 Uni Lending",
       "type": "浮动（借贷市场）",
-      "base": 2.85,
+      "base": 2.86,
+      "bonus": [],
+      "tiers": null,
+      "newuser": false,
+      "source": "Gate /api/v4/earn/uni/rate est_rate"
+    },
+    {
+      "ex": "Gate",
+      "coin": "USDE",
+      "name": "余币宝 Uni Lending",
+      "type": "浮动（借贷市场）",
+      "base": 5.0,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -621,24 +621,24 @@
       "stale": false,
       "n": 9,
       "error": null,
-      "updated_at": "2026-11-01T05:38:13Z",
-      "checked_at": "2026-11-01T05:38:13Z"
+      "updated_at": "2026-11-01T13:03:59Z",
+      "checked_at": "2026-11-01T13:03:59Z"
     },
     "OKX": {
       "ok": true,
       "stale": false,
       "n": 5,
       "error": null,
-      "updated_at": "2026-11-01T05:38:13Z",
-      "checked_at": "2026-11-01T05:38:13Z"
+      "updated_at": "2026-11-01T13:03:59Z",
+      "checked_at": "2026-11-01T13:03:59Z"
     },
     "Gate": {
       "ok": true,
       "stale": false,
       "n": 8,
       "error": null,
-      "updated_at": "2026-11-01T05:38:13Z",
-      "checked_at": "2026-11-01T05:38:13Z"
+      "updated_at": "2026-11-01T13:03:59Z",
+      "checked_at": "2026-11-01T13:03:59Z"
     },
     "Bitget": {
       "ok": false,
@@ -646,7 +646,7 @@
       "n": 17,
       "error": "HTTP 429（接口拒绝、限流或地区限制）",
       "updated_at": "2026-10-31T03:34:12Z",
-      "checked_at": "2026-11-01T05:38:13Z"
+      "checked_at": "2026-11-01T13:03:59Z"
     },
     "Bybit": {
       "ok": false,
@@ -654,7 +654,7 @@
       "n": 0,
       "error": "HTTP 403（接口拒绝、限流或地区限制）",
       "updated_at": null,
-      "checked_at": "2026-11-01T05:38:13Z"
+      "checked_at": "2026-11-01T13:03:59Z"
     }
   }
 }

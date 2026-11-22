@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-22T02:59:43Z",
-  "checked_at": "2026-11-22T02:59:43Z",
+  "updated_at": "2026-11-22T11:08:01Z",
+  "checked_at": "2026-11-22T11:08:01Z",
   "stable": [
     "USDT",
     "USDC",
@@ -24,7 +24,7 @@
       "coin": "USDT",
       "name": "USDT001",
       "type": "基础浮动+分档奖励",
-      "base": 1.6082269999999999,
+      "base": 1.5935270000000001,
       "bonus": [
         [
           0.0,
@@ -41,7 +41,7 @@
       "coin": "USDC",
       "name": "USDC001",
       "type": "基础浮动+分档奖励",
-      "base": 1.203962,
+      "base": 1.2919939999999999,
       "bonus": [
         [
           0.0,
@@ -58,7 +58,7 @@
       "coin": "FDUSD",
       "name": "FDUSD001",
       "type": "浮动",
-      "base": 0.341205,
+      "base": 0.340458,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -69,7 +69,7 @@
       "coin": "USD1",
       "name": "USD1001",
       "type": "浮动",
-      "base": 0.575535,
+      "base": 0.551776,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -80,7 +80,7 @@
       "coin": "TUSD",
       "name": "TUSD001",
       "type": "浮动",
-      "base": 2.294721,
+      "base": 2.294525,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -91,7 +91,7 @@
       "coin": "RLUSD",
       "name": "RLUSD001",
       "type": "浮动",
-      "base": 0.003203,
+      "base": 0.0030979999999999996,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -102,7 +102,7 @@
       "coin": "BTC",
       "name": "BTC001",
       "type": "基础浮动+分档奖励",
-      "base": 0.020228,
+      "base": 0.023792,
       "bonus": [
         [
           0.0,
@@ -119,7 +119,7 @@
       "coin": "ETH",
       "name": "ETH001",
       "type": "基础浮动+分档奖励",
-      "base": 1.113914,
+      "base": 1.093777,
       "bonus": [
         [
           0.0,
@@ -136,7 +136,7 @@
       "coin": "SOL",
       "name": "SOL001",
       "type": "浮动",
-      "base": 2.337908,
+      "base": 2.321042,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -191,7 +191,7 @@
       "coin": "SOL",
       "name": "Simple Earn 活期借贷",
       "type": "浮动（借贷市场）",
-      "base": 5.7,
+      "base": 4.9,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -199,7 +199,40 @@
     },
     {
       "ex": "Gate",
-      "coin": "FDUSD",
+      "coin": "USDC",
+      "name": "余币宝 Uni Lending",
+      "type": "浮动（借贷市场）",
+      "base": 2.77,
+      "bonus": [],
+      "tiers": null,
+      "newuser": false,
+      "source": "Gate /api/v4/earn/uni/rate est_rate"
+    },
+    {
+      "ex": "Gate",
+      "coin": "USDE",
+      "name": "余币宝 Uni Lending",
+      "type": "浮动（借贷市场）",
+      "base": 4.75,
+      "bonus": [],
+      "tiers": null,
+      "newuser": false,
+      "source": "Gate /api/v4/earn/uni/rate est_rate"
+    },
+    {
+      "ex": "Gate",
+      "coin": "SOL",
+      "name": "余币宝 Uni Lending",
+      "type": "浮动（借贷市场）",
+      "base": 3.35,
+      "bonus": [],
+      "tiers": null,
+      "newuser": false,
+      "source": "Gate /api/v4/earn/uni/rate est_rate"
+    },
+    {
+      "ex": "Gate",
+      "coin": "BTC",
       "name": "余币宝 Uni Lending",
       "type": "浮动（借贷市场）",
       "base": 0.1,
@@ -221,54 +254,10 @@
     },
     {
       "ex": "Gate",
-      "coin": "USD1",
-      "name": "余币宝 Uni Lending",
-      "type": "浮动（借贷市场）",
-      "base": 0.9299999999999999,
-      "bonus": [],
-      "tiers": null,
-      "newuser": false,
-      "source": "Gate /api/v4/earn/uni/rate est_rate"
-    },
-    {
-      "ex": "Gate",
-      "coin": "USDE",
-      "name": "余币宝 Uni Lending",
-      "type": "浮动（借贷市场）",
-      "base": 4.75,
-      "bonus": [],
-      "tiers": null,
-      "newuser": false,
-      "source": "Gate /api/v4/earn/uni/rate est_rate"
-    },
-    {
-      "ex": "Gate",
-      "coin": "BTC",
+      "coin": "FDUSD",
       "name": "余币宝 Uni Lending",
       "type": "浮动（借贷市场）",
       "base": 0.1,
-      "bonus": [],
-      "tiers": null,
-      "newuser": false,
-      "source": "Gate /api/v4/earn/uni/rate est_rate"
-    },
-    {
-      "ex": "Gate",
-      "coin": "USDC",
-      "name": "余币宝 Uni Lending",
-      "type": "浮动（借贷市场）",
-      "base": 3.56,
-      "bonus": [],
-      "tiers": null,
-      "newuser": false,
-      "source": "Gate /api/v4/earn/uni/rate est_rate"
-    },
-    {
-      "ex": "Gate",
-      "coin": "SOL",
-      "name": "余币宝 Uni Lending",
-      "type": "浮动（借贷市场）",
-      "base": 3.35,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -280,6 +269,17 @@
       "name": "余币宝 Uni Lending",
       "type": "浮动（借贷市场）",
       "base": 2.08,
+      "bonus": [],
+      "tiers": null,
+      "newuser": false,
+      "source": "Gate /api/v4/earn/uni/rate est_rate"
+    },
+    {
+      "ex": "Gate",
+      "coin": "USD1",
+      "name": "余币宝 Uni Lending",
+      "type": "浮动（借贷市场）",
+      "base": 0.9199999999999999,
       "bonus": [],
       "tiers": null,
       "newuser": false,
@@ -621,24 +621,24 @@
       "stale": false,
       "n": 9,
       "error": null,
-      "updated_at": "2026-11-22T02:59:43Z",
-      "checked_at": "2026-11-22T02:59:43Z"
+      "updated_at": "2026-11-22T11:08:01Z",
+      "checked_at": "2026-11-22T11:08:01Z"
     },
     "OKX": {
       "ok": true,
       "stale": false,
       "n": 5,
       "error": null,
-      "updated_at": "2026-11-22T02:59:43Z",
-      "checked_at": "2026-11-22T02:59:43Z"
+      "updated_at": "2026-11-22T11:08:01Z",
+      "checked_at": "2026-11-22T11:08:01Z"
     },
     "Gate": {
       "ok": true,
       "stale": false,
       "n": 8,
       "error": null,
-      "updated_at": "2026-11-22T02:59:43Z",
-      "checked_at": "2026-11-22T02:59:43Z"
+      "updated_at": "2026-11-22T11:08:01Z",
+      "checked_at": "2026-11-22T11:08:01Z"
     },
     "Bitget": {
       "ok": false,
@@ -646,7 +646,7 @@
       "n": 17,
       "error": "HTTP 429（接口拒绝、限流或地区限制）",
       "updated_at": "2026-10-31T03:34:12Z",
-      "checked_at": "2026-11-22T02:59:43Z"
+      "checked_at": "2026-11-22T11:08:01Z"
     },
     "Bybit": {
       "ok": false,
@@ -654,7 +654,7 @@
       "n": 0,
       "error": "HTTP 403（接口拒绝、限流或地区限制）",
       "updated_at": null,
-      "checked_at": "2026-11-22T02:59:43Z"
+      "checked_at": "2026-11-22T11:08:01Z"
     }
   }
 }
